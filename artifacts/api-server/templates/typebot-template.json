@@ -1,0 +1,3538 @@
+{
+  "version": "6",
+  "id": "cmpg8ewsd007invwxdwayg80b",
+  "name": "testee",
+  "events": [
+    {
+      "id": "z5utc66b72shfphzu7be54ia",
+      "outgoingEdgeId": "o08hky074z3bl9sqb4zr5bur",
+      "graphCoordinates": {
+        "x": -8867.87,
+        "y": 1011.41
+      },
+      "type": "start"
+    }
+  ],
+  "groups": [
+    {
+      "id": "q3pgmfsdstkxrvsd0dv4g2qi",
+      "title": "Bloco 1 - Apresentação",
+      "graphCoordinates": {
+        "x": -9174.25,
+        "y": 1081.98
+      },
+      "blocks": [
+        {
+          "id": "sry43pp6wythgmekpg3baxun",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "bold": true,
+                    "text": "__NOME_COMPLETO_MODELO__ entrou na conversa...",
+                    "italic": true,
+                    "underline": true
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "iipkvfmkzgr8j9iay7uwvt3o",
+          "type": "embed",
+          "content": {
+            "url": "__AUDIO_EMBED_URL__",
+            "height": 100
+          }
+        },
+        {
+          "id": "c5j9pmdcpfgda6ljegf4g5sh",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "1",
+            "shouldPause": true
+          }
+        },
+        {
+          "id": "pe4qkprk8064rjjd48y6yaaa",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Vou me apresentar pra você rapidinho bebê.."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "dnkykq67q7eelbh5mgkijkcm",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2"
+          }
+        },
+        {
+          "id": "x41105oxdplafjjluidrwfzp",
+          "type": "image",
+          "content": {
+            "url": "__IMAGEM_APRESENTACAO_URL__"
+          }
+        },
+        {
+          "id": "pztwdn3e0euy6611fkdkadkl",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "rzqwdwj3o1s79xey8q9ic2dt",
+                "variableId": "vhrbke11cip0555fdmt9e3itg",
+                "bodyPath": "data.city"
+              },
+              {
+                "id": "j1nyeyyir1uzb3li5hhmu5qb",
+                "variableId": "vs1op1g7wosgb5q58yur5xh57",
+                "bodyPath": "data.country_code"
+              },
+              {
+                "id": "oen7233lkjnglx7q4xevqd37",
+                "variableId": "vb8qyiwzz0bisyfuyxg41uc1s",
+                "bodyPath": "data.region_code"
+              },
+              {
+                "id": "hpr8u6uoprr3y93plo6tur1d",
+                "variableId": "vp7w9dd90gvlncm0anbphau6b",
+                "bodyPath": "data.ip"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "isExecutedOnClient": true,
+            "webhook": {
+              "method": "GET",
+              "url": "https://ipwhois.pro/?key=__IPWHOIS_KEY__"
+            }
+          }
+        },
+        {
+          "id": "q129jxfdfbpih8z0gz1hxea6",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Meu nome é __NOME_MODELO__, tenho __IDADE_MODELO__ aninhos"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "mavh5k5dziezmgdqyzyvx446",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vakhzypuzmoe6s1xuwyxdlz2u",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "const estadoOriginal = {{estado}};\n\nconst estadoFormatado = estadoOriginal\n  .toLowerCase();\n\nconst encoder = new TextEncoder();\nconst data = encoder.encode(estadoFormatado);\nconst hashBuffer = await crypto.subtle.digest(\"SHA-256\", data);\nconst hashArray = Array.from(new Uint8Array(hashBuffer));\nconst hashHex = hashArray.map(b => b.toString(16).padStart(2, \"0\")).join(\"\");\n\nreturn hashHex;"
+          }
+        },
+        {
+          "id": "cc2e3yxwpsn10b6tbu4h31le",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E moro em {{cidade}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "g36i1msg2pk5ugtb1mkcg853",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vq8tlslboviyi2nfx1hf5jjgp",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "const paisOriginal = {{pais}};\n\nconst paisFormatado = paisOriginal.toLowerCase();\n\nconst encoder = new TextEncoder();\nconst data = encoder.encode(paisFormatado);\nconst hashBuffer = await crypto.subtle.digest(\"SHA-256\", data);\nconst hashArray = Array.from(new Uint8Array(hashBuffer));\nconst hashHex = hashArray.map(b => b.toString(16).padStart(2, \"0\")).join(\"\");\n\nreturn hashHex;"
+          }
+        },
+        {
+          "id": "iyx92fkqv9zkh50wu3pq2gyz",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2"
+          }
+        },
+        {
+          "id": "mi30yz3a59ljcywjh5zdeuoa",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Muito prazer em conhecer vc!! ❤️ Você me chamou pelo interesse no meu conteúdo adulto né? "
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "bb8w4vfr96mjdlgj7o2ymhaj",
+          "outgoingEdgeId": "r6rt5bzpvvgw5h3h61vz355e",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite uma mensagem..."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dstovc95rpof69bh87yv9xan",
+      "title": "Bloco 2 - Apresentação + ViewContent",
+      "graphCoordinates": {
+        "x": -8309.86,
+        "y": 1455.37
+      },
+      "blocks": [
+        {
+          "id": "cyo4g4qogss39vvzkqph2oix",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "ypxm850dy8zcmanpnprzej22",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Então meu bem, eu sou um pouco tímida e comecei a fazer esse tipo de conteúdo agora pois saí da minha cidade pra morar em {{cidade}}, e aí estou vendendo conteúdos pra me ajeitar aqui mas logo logo eu vou parar!"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "rp84eafnw6k0heee3u2yvyn3",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vnc4py7725xyov3swn09lglaf",
+            "type": "Random ID"
+          }
+        },
+        {
+          "id": "lg6go8p0kf9gjx1665xxdyrn",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vbey0k31511b7jjyrhotmltsp",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return Math.floor(Date.now() / 1000)"
+          }
+        },
+        {
+          "id": "vmt5ymq8vg511m6i9cmselnz",
+          "type": "Webhook",
+          "options": {
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "qrsl6d6ex9rc484i6yxb02aq",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://graph.facebook.com/v23.0/__META_PIXEL_ID__/events?access_token=__META_ACCESS_TOKEN__",
+              "body": "{\n  \"data\": [\n    {\n      \"event_name\": \"ViewContent\",\n      \"event_time\": {{event_time3}},\n      \"event_id\": \"{{event_id3}}\",\n      \"user_data\": {\n        \"client_ip_address\": \"{{ip}}\",\n        \"client_user_agent\": \"{{client_user_agent}}\",\n        \"fbc\": \"{{fbc}}\",\n        \"fbp\": \"{{fbp}}\",\n        \"st\": \"{{estadohashfinal}}\",\n        \"country\": \"{{paishashfinal}}\",\n        \"external_id\": \"{{externalid}}\"\n      },\n      \"custom_data\": {\n        \"content_name\": \"__CONTENT_NAME__\",\n        \"utm_source\": \"{{utm_source}}\",\n        \"utm_medium\": \"{{utm_medium}}\",\n        \"utm_campaign\": \"{{utm_campaign}}\",\n        \"utm_content\": \"{{utm_content}}\",\n        \"utm_term\": \"{{utm_term}}\"\n      },\n      \"event_source_url\": \"{{event_source_url}}\",\n      \"action_source\": \"website\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "id": "fk4gomydrfr3d4w5wwmo04up",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "mgqan314pirjpm055kglmv1x",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Eu tirei umas fotos ontem bem quentes, se você estiver sozinho aí posso te mandar pra você me dar sua opinião?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "podrm2aeovvbm1hhggcpdzat",
+          "outgoingEdgeId": "i8mvkrex51p5unzmgq68hc36",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite uma mensagem..."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dzaj1o6lnlufoeqlmgh5qr9y",
+      "title": "Bloco 3 -  4 Fotos",
+      "graphCoordinates": {
+        "x": -7634.87,
+        "y": 1436.74
+      },
+      "blocks": [
+        {
+          "id": "w06jchzixfkcwi9nxgn67i4l",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "mse6kg65i58ri91f46iemuxh",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_1_URL__"
+          }
+        },
+        {
+          "id": "ju49a931zw8kwxpjarscjh80",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "sgrwj0sr25a6mlgosixtydso",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_2_URL__"
+          }
+        },
+        {
+          "id": "tyoq7f2jl0aq0k1bsm9eolot",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "y57rdbxlurdat5uwhv0z1ig0",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_3_URL__"
+          }
+        },
+        {
+          "id": "z5tw1tmt28u5s9qnvemsdya2",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "bzqa9sf9dphhs0qjtiq5y6ct",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_4_URL__"
+          }
+        },
+        {
+          "id": "w5kybh6g0zyj7bba0bhb83d2",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "au2ccyhtvrg3wg6br6io83bw",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Gostou amor? haha 😈"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "j7mt9n95doq615kgfpkf2qq3",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "o5kw0b72kyr2g42jsvprt1pq",
+              "outgoingEdgeId": "v9ahrqrc4aoae6d9urb81psz",
+              "content": "AMEI 😍"
+            }
+          ]
+        },
+        {
+          "id": "p2xuks6a792fcqnmtgnjdkyh",
+          "outgoingEdgeId": "cglm7ty6zhejp2ry987klsdi",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "bjibrf8al1la61ni5uteakw5",
+      "title": "Bloco 4 - Fixo",
+      "graphCoordinates": {
+        "x": -7129.54,
+        "y": 1474.08
+      },
+      "blocks": [
+        {
+          "id": "x7fql8arfcgre3829toiyp0q",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Gostei de você 🥰😈"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "h29imprriu7v07nq31n8sh9m",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "dkv3oibh98hpo67mqnw3m2xp",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Tenho muito mais pra você ver rsrs, posso te explicar o que vem no meu conteúdo completo? Inclusive eu faço chamada de vídeo até você gozar😏🔥"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "hfjrgnqwvzphv9h96hjdr93n",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2"
+          }
+        },
+        {
+          "id": "txmgrq4pv89rhpj78dkatzkt",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E na chamada de vídeo eu faço TUDO que você me pedir rsrs"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "kghxx7naagfcnoqbpwa0kdfw",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "qcyu7e3kocuwe2ixzg0ci0gt",
+              "outgoingEdgeId": "ldo4k4mi8zk97v89p7y7alyy",
+              "content": "ESTOU INTERESSADO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ip7we1tok0bx5eo5ecui6fjn",
+      "title": "Bloco 5 - Oferta - Fixo",
+      "graphCoordinates": {
+        "x": -6690.42,
+        "y": 1183.3
+      },
+      "blocks": [
+        {
+          "id": "mdnyrtlwrs4eozl2uwtvhc3x",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "axdovgy8bvrd4kd95aecrvnj",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "O meu conteúdo completo de "
+                  },
+                  {
+                    "bold": true,
+                    "text": "50 fotos + 50 vídeos "
+                  },
+                  {
+                    "text": "está por apenas "
+                  },
+                  {
+                    "bold": true,
+                    "text": "10 reais"
+                  },
+                  {
+                    "text": " no PIX, e comprando o pacote "
+                  },
+                  {
+                    "bold": true,
+                    "text": "você ganha de brinde uma chamada de vídeo"
+                  },
+                  {
+                    "text": " no horário que você escolher"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "w31gllbzwiu7b47mngq9y3ia",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "6",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "efbgxlqvanlqc4yhrafphaum",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "No conteúdo tem várias fotos da minha bucetinha, bunda, peitos, em várias posições.. De quatro, pernas abertas, eu me mostrando todinha pra você..."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "y5xexw5u0eygbsh4zrjk3dht",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "6",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "ebakwgp5nc1vg9ylz136sykq",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "No conteúdo também tem vídeos meus brincando com a minha bucetinha até gozar, sentando no consolo, vídeos caseiros no banho, vídeos fazendo striptease, também tenho vídeos transando e até dando o cuzinho"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ek5b2jxe47ygqmg05evkevz8",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "6",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "msj9wcl264rjk68l1scif89n",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E são vídeos longos tá meu bem.. Eu sei que tem muita menina por aí que vende vídeo curtinhos de segundos e eu acho isso um absurdo. Meus vídeos foram feitos pra você gozar bem gostoso rsrs"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "zlo9lyvz2rawq9tydlmpejvl",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "6",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "etrxeb8ln1hebwkdoe4abwr4",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E como eu disse, estou com uma super promoção hoje. Se você comprar meu pacote completo de "
+                  },
+                  {
+                    "bold": true,
+                    "text": "10 reais"
+                  },
+                  {
+                    "text": ", você ganha "
+                  },
+                  {
+                    "bold": true,
+                    "text": "meu número de whatsapp pessoal"
+                  },
+                  {
+                    "text": " agora mesmo e a gente pode marcar uma "
+                  },
+                  {
+                    "bold": true,
+                    "text": "chamada de vídeo"
+                  },
+                  {
+                    "text": " para o horário que você desejar. E sim, a chamada é até gozar rsrs.."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "hipwhmg3wxjwio2xu923hwes",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "8",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "o88283ven1cekbawgjc37t7a",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Está barato desse jeito nesse valor simbólico porque é apenas pra me ajudar nas minhas despesas, tenho certeza que "
+                  },
+                  {
+                    "bold": true,
+                    "text": "10 reais"
+                  },
+                  {
+                    "text": " não deve ser nada pra um homem como você..."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "t4b1sbnd5lhh01517iils037",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "6"
+          }
+        },
+        {
+          "id": "b89escxidr2elh1q16vn219p",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E o pagamento é via PIX, eu gero aqui agora o código pix copia/cola pra você, "
+                  },
+                  {
+                    "bold": true,
+                    "text": "e imediatamente após o pagamento eu já te mando o conteúdo completo e te mando meu número de whatsapp pessoal"
+                  },
+                  {
+                    "text": " pra você me chamar agora mesmo ❤️"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "xigzdy50swe2lnspu9nqgd41",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "8"
+          }
+        },
+        {
+          "id": "laq3j6i84d96kdrvbdl2lv4q",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Você vai querer?  Posso te mandar o código pix copia/cola?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "k71p5fhn7q9lxtlq2s6sh9ad",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "n9sxk3qylnyfej65o6cp2z7s",
+              "outgoingEdgeId": "adc4x4lng05acu0yyoyt67a0",
+              "content": "Sim, pode mandar"
+            },
+            {
+              "id": "q6cue5j9oytm8f3pz7rxd8n2",
+              "outgoingEdgeId": "nsxf87ubmzxgb90um1tt00h7",
+              "content": "Ainda estou na dúvida"
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "qf3ld4m15sd7xw3r4xu975l0",
+      "title": "Bloco 6 - Geração PIX - Fixo",
+      "graphCoordinates": {
+        "x": -6123.07,
+        "y": 1598.28
+      },
+      "blocks": [
+        {
+          "id": "g432gjfqpqqmuuafzwvrnup3",
+          "type": "image",
+          "content": {
+            "url": "https://minio-production-c185.up.railway.app/typebot/public/workspaces/cls53hzp60001qwv2c0iyw47k/typebots/cm4iy2uu3002z14i8q14yt8bo/blocks/g432gjfqpqqmuuafzwvrnup3?v=1733879449074"
+          }
+        },
+        {
+          "id": "ym2y7cm2ht3htrez15ll4hj3",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "ec8wq9e3n05ez8k14rn9hq9x",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Te mandei aí um pequeno videozinho explicando como fazer o pagamento. "
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Pode ficar tranquilo que é super sigiloso, o nome que vai aparecer no pix é ''PUSHIN PAY'' então ninguém poderá saber o que é."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "lb7dc00rzwbjfeimz66m29yf",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Em todos os bancos é bem parecido, é só ir em  ''Pagar > ''Pix copia/cola'' e colar o código"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "v6zfpzctpnq2bj49vs964ggu",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "akbgu7n40sjsxcyqmvvdp77l",
+                "variableId": "vrlqeigt3atmolixj6oxmkels",
+                "bodyPath": "data.qr_code"
+              },
+              {
+                "id": "xwxizkwwxlecn2tf5iek8uxu",
+                "variableId": "vzgve45mmtgraefeiwedhbmz5",
+                "bodyPath": "data.id"
+              },
+              {
+                "id": "uasg9r7rw5cc9xch4unzpnvx",
+                "variableId": "vxdj08ejzl8eqlbih8h33xtlg",
+                "bodyPath": "data.qr_code_base64"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "huyytt948fl3k31zqt0m9h0q",
+                  "key": "Authorization",
+                  "value": "Bearer 6095|OZedaJ07VtfS2kcDbQeLaQvBQprf0T1YjE4qix61eb1c336c"
+                },
+                {
+                  "id": "xe0pr8dgmla45kg71awch4c0",
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "id": "fafiudxnz9pnhqpeavuxlumg",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://api.pushinpay.com.br/api/pix/cashIn",
+              "body": "{\n  \"value\": 1000,\n  \"utms\": {\n    \"utm_source\": \"{{utm_source}}\",\n    \"utm_campaign\": \"{{utm_campaign}}\",\n    \"utm_medium\": \"{{utm_medium}}\",\n    \"utm_content\": \"{{utm_content}}\",\n    \"utm_term\": \"{{utm_term}}\",\n    \"utm_product\": \"__UTM_PRODUCT_PRINCIPAL__\"\n  }\n}"
+            }
+          }
+        },
+        {
+          "id": "jr5brgk73qm6trpm6ukvyx84",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "1",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "r4q02tbxwjopkp3140dp9hkf",
+          "type": "image",
+          "content": {
+            "url": "{{qr_code_base64}}"
+          }
+        },
+        {
+          "id": "txfvk6yn1hm5ojmm9q0c4qzi",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Aqui está o código pix copia/cola:"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "dct0l4heu4mazy6txybniob3",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{qr_code}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "dgk3dzoitmtiqk1hqcux5uta",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "xn0viz40t2scjkmfbk1suizh",
+              "outgoingEdgeId": "ht0xgpv1x3kll3156joo8kv4",
+              "content": "COPIAR CÓDIGO PIX"
+            }
+          ]
+        },
+        {
+          "id": "tz3byhd350yfekncv7fx489c",
+          "outgoingEdgeId": "nmvwcvphilpvkxfhzt7qw6np",
+          "type": "Code",
+          "options": {
+            "content": "await navigator.clipboard.writeText({{qr_code}});"
+          }
+        }
+      ]
+    },
+    {
+      "id": "z12rru4qkuoiokznuu91sk90",
+      "title": "Bloco 7 - Geração PIX - Iniatiatecheckout",
+      "graphCoordinates": {
+        "x": -5728.4,
+        "y": 1605.57
+      },
+      "blocks": [
+        {
+          "id": "ohsesdkll4ee99o0o2ca6w1w",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vkwjzslvuyx0hyuvfljen7zd1",
+            "type": "Random ID"
+          }
+        },
+        {
+          "id": "aalp2dpy8trzeb2vlcbjnrty",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Pronto meu bem, ao clicar no botão você automaticamente já copiou o código PIX. "
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Agora é só colar no aplicativo do seu banco como te falei"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ngl2jlm5itkrnn89n17fj58l",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vocbb99c49s9ak81db9p7ppe5",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return Math.floor(Date.now() / 1000)"
+          }
+        },
+        {
+          "id": "ytyfa78mvatt1g9ahiq24pr0",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "kyh7qcq34bt093yhiitw7q92",
+          "type": "Webhook",
+          "options": {
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "qrsl6d6ex9rc484i6yxb02aq",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://graph.facebook.com/v23.0/__META_PIXEL_ID__/events?access_token=__META_ACCESS_TOKEN__",
+              "body": "{\n  \"data\": [\n    {\n      \"event_name\": \"InitiateCheckout\",\n      \"event_time\": {{event_time4}},\n      \"event_id\": \"{{event_id4}\",\n      \"user_data\": {\n        \"client_ip_address\": \"{{ip}}\",\n        \"client_user_agent\": \"{{client_user_agent}}\",\n        \"fbc\": \"{{fbc}}\",\n        \"fbp\": \"{{fbp}}\",\n        \"st\": \"{{estadohashfinal}}\",\n        \"country\": \"{{paishashfinal}}\",\n        \"external_id\": \"{{externalid}}\"\n      },\n      \"custom_data\": {\n        \"currency\": \"BRL\",\n        \"value\": 10.00,\n        \"content_name\": \"__CONTENT_NAME__\",\n        \"utm_source\": \"{{utm_source}}\",\n        \"utm_medium\": \"{{utm_medium}}\",\n        \"utm_campaign\": \"{{utm_campaign}}\",\n        \"utm_content\": \"{{utm_content}}\",\n        \"utm_term\": \"{{utm_term}}\"\n      },\n      \"event_source_url\": \"{{event_source_url}}\",\n      \"action_source\": \"website\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "id": "lo9n6cj7f5wcj6expv5g1qzj",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Após "
+                  },
+                  {
+                    "bold": true,
+                    "text": "efetuar o pagamento"
+                  },
+                  {
+                    "text": ", clique no botão abaixo para receber o conteúdo e meu número pessoal do whatsapp ⤵️ "
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "u3zgskncsxb5tyrqkh4rgzi4",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "ynle4wb0xzg91yz2ekr9lye6",
+              "outgoingEdgeId": "mzg69edwn0la00w3wi1v4clh",
+              "content": "✅ FIZ O PAGAMENTO!"
+            }
+          ]
+        },
+        {
+          "id": "gmu25ebb6j4ked8fe534350g",
+          "outgoingEdgeId": "lxu2j5f9kcjk6yfar7j6v6d5",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ok, vou conferir aqui me dá 10 segundinhos"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "vgtvb0jqsf05dt9o23cdwwcp",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5396.52,
+        "y": 2282.77
+      },
+      "blocks": [
+        {
+          "id": "fyljsqfizr6u4wo93qlebmlr",
+          "outgoingEdgeId": "d66zmx8t9osph3r7gx9ojuq9",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "lr3jozxzoi298d4npjpiyhvw",
+                "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                "bodyPath": "data.status"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "yiygpuj03ms8vzfqr9tcosbx",
+                  "key": "Authorization",
+                  "value": "Bearer 6095|OZedaJ07VtfS2kcDbQeLaQvBQprf0T1YjE4qix61eb1c336c"
+                },
+                {
+                  "id": "o34q8i2o5b0je79mwmduzo1g",
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "id": "mwqny1xwux39au8x86y98ocr",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET",
+              "url": "https://api.pushinpay.com.br/api/transactions/{{id}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sn9uj9aq6mszcmsu9932jsga",
+      "title": "Bloco - Venda confirmada - Purchase",
+      "graphCoordinates": {
+        "x": -4722.06,
+        "y": 2185.6
+      },
+      "blocks": [
+        {
+          "id": "aorwusfa7fhl80wqx5wngvp2",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vph66he9t1qjobhbywvgbr6cl",
+            "type": "Random ID"
+          }
+        },
+        {
+          "id": "ttt7v9ou6t5sjduykiucx6ua",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vsw6ls72mdolffxfo55jmj6z8",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return Math.floor(Date.now() / 1000)"
+          }
+        },
+        {
+          "id": "jlot4yaeuji9i0nkzah7cr21",
+          "type": "Webhook",
+          "options": {
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "qrsl6d6ex9rc484i6yxb02aq",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://graph.facebook.com/v23.0/__META_PIXEL_ID__/events?access_token=__META_ACCESS_TOKEN__",
+              "body": "{\n  \"data\": [\n    {\n      \"event_name\": \"Purchase\",\n      \"event_time\": {{event_time}},\n      \"event_id\": \"{{event_id}}\",\n      \"user_data\": {\n        \"client_ip_address\": \"{{ip}}\",\n        \"client_user_agent\": \"{{client_user_agent}}\",\n        \"fbc\": \"{{fbc}}\",\n        \"fbp\": \"{{fbp}}\",\n        \"st\": \"{{estadohashfinal}}\",\n        \"country\": \"{{paishashfinal}}\",\n        \"external_id\": \"{{externalid}}\"\n      },\n      \"custom_data\": {\n        \"currency\": \"BRL\",\n        \"value\": 10.00,\n        \"content_name\": \"__CONTENT_NAME__\",\n        \"utm_source\": \"{{utm_source}}\",\n        \"utm_medium\": \"{{utm_medium}}\",\n        \"utm_campaign\": \"{{utm_campaign}}\",\n        \"utm_content\": \"{{utm_content}}\",\n        \"utm_term\": \"{{utm_term}}\"\n      },\n      \"event_source_url\": \"{{event_source_url}}\",\n      \"action_source\": \"website\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "id": "aozwkss0ioqmrewc0ig1k49q",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Recebi o pix certinho amor! Muito obrigada pela sua confiança!!"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "qkhlod4m6ayi5pgzxii4zadd",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Agora vou te dar duas opções: Você pode receber o conteúdo todo agora de forma automatizada apenas clicando no botão que vou colocar aqui"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wk14sq6dku2uaf58f8bccwqn",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ou você pode me chamar no meu número pessoal no whatsapp e eu te mando o conteúdo todo por lá"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "cfxif7grgekzi61rhj560g6m",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "t0wo4zqoyeo43uwtdx4dbz6z",
+              "outgoingEdgeId": "b7ns30drdsbfrew9zeji79th",
+              "content": "CLIQUE PARA RECEBER O CONTEÚDO"
+            },
+            {
+              "id": "xwqhp4uj4zw8ef0rd17uon4c",
+              "outgoingEdgeId": "wwnp8xjeeuwld0svmjvuxw6y",
+              "content": "CLIQUE PARA ME CHAMAR NO WHATSAPP E RECEBER POR LÁ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nz20mc7iu28fraftijrqqshd",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5060.79,
+        "y": 2854.12
+      },
+      "blocks": [
+        {
+          "id": "raciy2zeyy1lucj480ax8q9j",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5"
+          }
+        },
+        {
+          "id": "o1lggms2el41cord0lqt6l8d",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Meu bem, verifiquei aqui e o pagamento ainda não caiu... Vamos tentar novamente?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "t87x796qej9oto57loe7arf7",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "pdd1a2idfxyivydjheeq1m2n",
+              "outgoingEdgeId": "aw0brd4ptgtz9qfl4rc9wbp5",
+              "content": "SIM"
+            },
+            {
+              "id": "arha7xqynlvb21scmyk2bwr1",
+              "outgoingEdgeId": "drie4sjoekptzq01timnklb1",
+              "content": "ESTOU COM DIFICULDADES PRA PAGAR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l5k24nunzw4ztlzx7k2ci7fv",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -4167.79,
+        "y": 3741.82
+      },
+      "blocks": [
+        {
+          "id": "dayo55ruzr9nxp4wiinew6n3",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Amor"
+                  },
+                  {
+                    "bold": true,
+                    "text": " utilize a opção:"
+                  },
+                  {
+                    "text": "\n\"Pagar” > “"
+                  },
+                  {
+                    "bold": true,
+                    "text": "PIX copia e Cola"
+                  },
+                  {
+                    "text": "” no aplicativo do seu banco!"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "qsxy53j08kspz10ykh5y5vrb",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{qr_code}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "w98spojepue8wxz2rtvjucgm",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "pzr6ynmbgmuumwwhlv7vdzxt",
+              "outgoingEdgeId": "iafu5w24rlhzw3bpj54s2ye7",
+              "content": "COPIAR CÓDIGO PIX"
+            }
+          ]
+        },
+        {
+          "id": "me7yw2sapcyk0l1rth75bdpq",
+          "type": "Code",
+          "options": {
+            "content": "await navigator.clipboard.writeText({{qr_code}});"
+          }
+        },
+        {
+          "id": "kut0mww3h47d9p9m1elattxr",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Seu código foi copiado com "
+                  },
+                  {
+                    "bold": true,
+                    "text": "sucesso"
+                  },
+                  {
+                    "text": "! Agora é só colar no aplicativo do seu banco na seção de ''Pagar > Pix copia e cola''"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ahfeklycsy5cbxi2pdoxhj4e",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "x439qds0z99gj3jjxxjtjsu5",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Amor após você "
+                  },
+                  {
+                    "bold": true,
+                    "text": "efetuar o pagamento"
+                  },
+                  {
+                    "text": ", clique no botão abaixo para receber o conteúdo e meu número pessoal do whatsapp ⤵️ "
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "qq8t9xhoj5ch81iar0f6rl41",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "tczqdwde02ibj1gj3nf8u5cr",
+              "outgoingEdgeId": "jvawaczw19qmrc4rkv1uq6e8",
+              "content": "✅ PRONTO AGORA EU PAGUEI MESMO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apk7id4y8tvodh2b4rzmmon9",
+      "title": "Ultima foto",
+      "graphCoordinates": {
+        "x": -3422.98,
+        "y": 3922.22
+      },
+      "blocks": [
+        {
+          "id": "x8go6218zs9iy4n9mzj6snvf",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "\nO meu amor..."
+                  },
+                  {
+                    "bold": true,
+                    "text": "\nAinda não foi realizado!\n"
+                  },
+                  {
+                    "text": "Você precisa "
+                  },
+                  {
+                    "bold": true,
+                    "text": "pagar"
+                  },
+                  {
+                    "text": " para receber o seu pacote e poder fazer uma chamada de vídeo comigo...\nRealmente possui interesse ? 🤔"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "p7q61oxsp6ckutqyutwochn3",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "ywgj0d12s4122r0f9hwmai78",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Vou te mandar uma fotinha agora pra ajudar a você a se decidir"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "m3a0ahnd5gsorgo8zl9pyt1f",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_7_URL__"
+          }
+        },
+        {
+          "id": "vmg74frirmmnza4maem4rehr",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "u8q6kizjttrt89oycrku31ui",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E aí, você vai querer tentar fazer o pix de novo? Se sim eu vou te mandar novamente o pix, eu sei que você é confiável mas nossa eu fico com medo de divulgarem as fotos."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "sn8vvklmwocujikj3fjzqmfw",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2",
+            "shouldPause": false
+          }
+        },
+        {
+          "id": "iiwhiwmjjl3gsgs7cgovpppr",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Infelizmente tem muito golpista que me chama apenas para pedir mais amostras grátis aí eu fico chateada, nem respondo nesse caso.."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "szy4jxm2sypm8jgk1p3tbaqn",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "b7zutv6otye3n411w12e3uzz",
+              "outgoingEdgeId": "m1ikupu300jlhwaoar53z9rp",
+              "content": "EU QUERO COMPRAR"
+            }
+          ]
+        },
+        {
+          "id": "wvv0wmls3v8ayjveukluyfp0",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "roiu9xxnzgcs41mpfdnrg9y2",
+              "outgoingEdgeId": "wryhsa7hn2681p1xg5ve7cuv",
+              "content": "DEIXA PRA LÁ!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "j94w2z7cmg7re1giojddyxgz",
+      "title": "Group #16",
+      "graphCoordinates": {
+        "x": -3946.12,
+        "y": 5461.96
+      },
+      "blocks": [
+        {
+          "id": "mbu52yxpgmkx2wxr1wf0i2s1",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ok.. Tenha um ótimo dia."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tcoa1pt992lnk4zswzhj04o4",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5402.47,
+        "y": 2637.01
+      },
+      "blocks": [
+        {
+          "id": "dai4yklmj6e32qctg9mu25fu",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "vuitdhlk5ndmcpfu9e4a5xkf",
+              "outgoingEdgeId": "cv2f2heb3393no5q0pmzwk79",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "x24qwvs2khdtxem0h7onlv7s",
+                    "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                    "comparisonOperator": "Equal to",
+                    "value": "paid"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "jcahmr2sgkkjwnrth14z1lqr",
+              "outgoingEdgeId": "sast1pji7izesa0acq15hi7b",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "itqo9h5p1dljdjfr8i89stzd",
+                    "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                    "comparisonOperator": "Not equal",
+                    "value": "paid"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p8i5s2an46uj40vop73qudkq",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5173.34,
+        "y": 3381.14
+      },
+      "blocks": [
+        {
+          "id": "eiy5lybm94swhj0b7wpta0z3",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2"
+          }
+        },
+        {
+          "id": "n34ncppx9diulub5gu7jtlj2",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Mas qual é sua dificuldade na hora de pagar meu bem?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "vzh49ilawgl99l6yt13g10xc",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "v7md7lx0j5s799fxk3yfbkt1",
+              "outgoingEdgeId": "vr8qy0y8scbcg03qfarrvv5v",
+              "content": "NÃO SEI FAZER O PAGAMENTO"
+            },
+            {
+              "id": "itoko69q640b5j1gt2ghc7np",
+              "outgoingEdgeId": "vb8tyxzjpvwzd7vd2w9spufg",
+              "content": "NÃO TENHO DINHEIRO AGORA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ipiu91ffwf93qw1h07mx1dd3",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5817.7,
+        "y": 3709.41
+      },
+      "blocks": [
+        {
+          "id": "rzvb5exz1jgpq8idzigjanj9",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Olha amor, se for pra você comprar agora, eu posso te fazer tudo por 10 reais. Você quer?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "irh1m9o08phue53fncjxxrms",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "ck9w7kz86zz794r227rh22b3",
+              "outgoingEdgeId": "tvytjmptb22yxhf1ofbh0a62",
+              "content": "EU QUERO"
+            },
+            {
+              "id": "qbfvm195wgke7fq0bo8vzmd1",
+              "outgoingEdgeId": "gti7lkkzc0l18wsnpq8axj9h",
+              "content": "NÃO TENHO INFELIZMENTE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cvqhfoqm3cyseb98oxxfxpwp",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5199.31,
+        "y": 4060.4
+      },
+      "blocks": [
+        {
+          "id": "adkric0lnz6ntr4668n7of24",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "2"
+          }
+        },
+        {
+          "id": "ep7sz7d9b6pkfuf925pljjws",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ok vou te explicar amor, existem as chave pix normais como celular, email, cpf, e existe também o "
+                  },
+                  {
+                    "bold": true,
+                    "text": "código pix copia/cola"
+                  },
+                  {
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "aajndktaf3v61wf0fotqpxcy",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "1"
+          }
+        },
+        {
+          "id": "p6i2krmwp37pa8temetetg0j",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "O código pix copia e cola geralmente nos bancos você encontra mais ou menos na área de ''Pagar''' > ''Pix Copia/Cola'', vai estar escrito parecido com isso."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "zxpq25lx97u0ohtyvlo0j021",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "htby5008bbr87no4115be9yz",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E quando você clicar no botão ''Copiar codigo pix'' que eu deixei pra você aqui, o código pix é automaticamente copiado, então tudo que você tem que fazer é colar no aplicativo do seu banco."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "bysor4jm6zzdewgmqpx8yjvb",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "gzkfat5lzlnpq7szxnuvrjrv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E para colar é muito simples, é só você ir no aplicativo do seu banco, achar a opção do pagamento pix copia e cola, e quando você abrir, é só você pressionar e segurar o dedo na tela e vai aparecer a opção ''colar'' e aí é só apertar nela."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "icj0v5e59xbxirmu6b4v4jur",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "xrm1ij9dye28y46gxgswdfy9",
+              "outgoingEdgeId": "beratk3nhlrdbiqo20sbmsg9",
+              "content": "ENTENDI. QUERO TENTAR NOVAMENTE"
+            },
+            {
+              "id": "s495hgdlijghb3u254td8pub",
+              "outgoingEdgeId": "k4i0g5oe2irnqyvjc4jptq95",
+              "content": "DEIXA PRA LÁ!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tya4yumtnsci5emkert0nrdh",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -4038.27,
+        "y": 3351.08
+      },
+      "blocks": [
+        {
+          "id": "oltvoq1b5b4sbqkh8jrqyt45",
+          "outgoingEdgeId": "cadj0kwv4ynhp1mfbmxqkg63",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "lr3jozxzoi298d4npjpiyhvw",
+                "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                "bodyPath": "data.status"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "yiygpuj03ms8vzfqr9tcosbx",
+                  "key": "Authorization",
+                  "value": "Bearer 6095|OZedaJ07VtfS2kcDbQeLaQvBQprf0T1YjE4qix61eb1c336c"
+                },
+                {
+                  "id": "o34q8i2o5b0je79mwmduzo1g",
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "id": "mwqny1xwux39au8x86y98ocr",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET",
+              "url": "https://api.pushinpay.com.br/api/transactions/{{id}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "jbykwu668xa3kyql9q73xb3v",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -3600.93,
+        "y": 3229.04
+      },
+      "blocks": [
+        {
+          "id": "idbw3gd6lnmuwbrriyl5e102",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "c6r05noert280qs0cskw0w45",
+              "outgoingEdgeId": "wswf1w3x51foh2zjvkaejg0p",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "x24qwvs2khdtxem0h7onlv7s",
+                    "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                    "comparisonOperator": "Equal to",
+                    "value": "paid"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ulp1uwmo6ztfxz395aqhneqe",
+              "outgoingEdgeId": "c7lr3m4ru9rshvhn85avaa5z",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "itqo9h5p1dljdjfr8i89stzd",
+                    "variableId": "vles8v8vgzs8agxopdyc37gdy",
+                    "comparisonOperator": "Not equal",
+                    "value": "paid"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kkg7yijlcm0bbg9x0mmyein6",
+      "title": "Entrega conteudo",
+      "graphCoordinates": {
+        "x": -4301.6,
+        "y": 2544.41
+      },
+      "blocks": [
+        {
+          "id": "ef3rjmo8ee72y3v76fiqheee",
+          "type": "Redirect",
+          "options": {
+            "url": "__LINK_ENTREGA_CONTEUDO__",
+            "isNewTab": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "qycky3914kmbjmmvxyf0ahjg",
+      "title": "Entrega conteudo",
+      "graphCoordinates": {
+        "x": -4331.93,
+        "y": 2804.4
+      },
+      "blocks": [
+        {
+          "id": "j150drt67tbb9ax2w7jecrk7",
+          "type": "Redirect",
+          "options": {
+            "url": "__LINK_ENTREGA_CONTEUDO__"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bexz37tpo0rzy4o4c50hubbs",
+      "title": "Bloco 5.5 - Oferta + 2 fotos",
+      "graphCoordinates": {
+        "x": -6822.27,
+        "y": 3693.06
+      },
+      "blocks": [
+        {
+          "id": "d5nomazi449et3y3d5fecmoh",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "nquwm1gjqtiuc9y8ybru8g5t",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Vou te mandar mais 2 fotinhas pra você ver que eu mando tudo cetinho.."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "f7dyjmf7vqcg8s5zomts3e99",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_6_URL__"
+          }
+        },
+        {
+          "id": "qpyoq1uinakzprt428x2687g",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "fce50wtgp4euhvgch4djd32b",
+          "type": "image",
+          "content": {
+            "url": "__FOTO_AMOSTRA_5_URL__"
+          }
+        },
+        {
+          "id": "cazm0k6h6gqhcfqk1wpfprzg",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "aimugkqsn8ux4s70is94lsg4",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E eu sou real tá meu amor? Esse site que a gente está conversando é um chat que eu uso pra filtrar os clientes"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3a3qunio41bgw8dx60o4og0",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "i91243pwaubp2qvwkl8rsra2",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Infelizmente quando eu passava meu whatsapp pessoal já de cara, aparecia um monte de homem mal intencionado, golpista, só querendo pedir amostras grátis e me bloquear depois. Além de eu já ter sido enganada algumas vezes."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ic80rzvmzg8becrzq6s5j67m",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "4"
+          }
+        },
+        {
+          "id": "h6yptoabz8wzqwkdta9rcr1d",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Mas você pode ficar tranquilo, caso vire meu cliente aposto que você vai amar meu conteúdo e minha chamada de brinde se você for querer também rs"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "kybmi6ksbs1lyhrct7u61m8i",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "ji0gzbo135nz7wrtvhs9dzwv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Até porque quanto mais eu te agradar melhor pra mim, porque aí aumentam as chances de você querer comprar mais vezes não é mesmo?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "fadn93fiqjihcha6zuxjewch",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5"
+          }
+        },
+        {
+          "id": "nut9lz1mdsmj5r1ntbcydh44",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Amor então resumindo pra você:"
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Por "
+                  },
+                  {
+                    "bold": true,
+                    "text": "10 reais"
+                  },
+                  {
+                    "text": " você compra meu pacote completo com "
+                  },
+                  {
+                    "bold": true,
+                    "text": "50 fotos e 50 vídeos"
+                  },
+                  {
+                    "text": " e de brinde vai poder fazer uma "
+                  },
+                  {
+                    "bold": true,
+                    "text": "chamada de vídeo"
+                  },
+                  {
+                    "text": " comigo até gozar!"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "yph2rzpsih1pxihw5qwg1chp",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5"
+          }
+        },
+        {
+          "id": "tpo9phc62ym3t9vivyj9s7ys",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E o conteúdo eu envio pelo whatsapp, e a chamada também é feita pelo whatsapp."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "di5ym7d0s22e2k2bkqwlt9w9",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "juymk3hjdc7s46tc3jrw5y0g",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Então assim que você mandar o pix, agora mesmo eu já te passo meu whatsapp pra te mandar o conteúdo completo e a gente poder fazer a chamada se você for querer."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "ndwji0py4qpaz7ms71pr5vwh",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5"
+          }
+        },
+        {
+          "id": "kjtah7jy2mosbgohhqug7z9p",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E com um valor tão baixo de "
+                  },
+                  {
+                    "bold": true,
+                    "text": "10 reais"
+                  },
+                  {
+                    "text": ", aposto que isso não deve ser nada pra você."
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Mas pra mim é o suficiente pra me ajudar bastante nas minhas despesas.."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "bd4yp4m4tqfyfb83wxe2gci5",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "5"
+          }
+        },
+        {
+          "id": "wrpa4wzf1zcunjsoms3w6j15",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "E aí amor? Você vai querer?  Posso te mandar o código PIX copia/cola?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "tjnd7zut4j15r6gi6the9x10",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "v8aq8qgjc9kvzisz40h2jdde",
+              "outgoingEdgeId": "gvjhykx2v1ueh48o2mg4lz7l",
+              "content": "PODE! MANDA O CODIGO PIX"
+            },
+            {
+              "id": "nskv50hb19ok8225k75kurzp",
+              "outgoingEdgeId": "v305rx47wycmqdlg0n8o7x7d",
+              "content": "DEIXA PRA LÁ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rvpem79k0p2jjkjvgf4ft7xr",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -5829.22,
+        "y": 4355.61
+      },
+      "blocks": [
+        {
+          "id": "is0bac4tir378ebmg42zos4a",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ok.. Vou te passar meu insta e aí quando vc quiser comprar é só me chamar la!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ilivmr8myuz6gz833pmwlqhd",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -6263.12,
+        "y": 3649.38
+      },
+      "blocks": [
+        {
+          "id": "ttk5aduahc5a2xd4nwg4tain",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "akbgu7n40sjsxcyqmvvdp77l",
+                "variableId": "ve5o1pnk6vdocuazgploguqbw",
+                "bodyPath": "data.qr_code"
+              },
+              {
+                "id": "xwxizkwwxlecn2tf5iek8uxu",
+                "variableId": "vpvjetiek96n2no5i6pmlsfjy",
+                "bodyPath": "data.id"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "huyytt948fl3k31zqt0m9h0q",
+                  "key": "Authorization",
+                  "value": "Bearer 6095|OZedaJ07VtfS2kcDbQeLaQvBQprf0T1YjE4qix61eb1c336c"
+                },
+                {
+                  "id": "xe0pr8dgmla45kg71awch4c0",
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "id": "fafiudxnz9pnhqpeavuxlumg",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://api.pushinpay.com.br/api/pix/cashIn",
+              "body": "{\n  \"value\": 1000,\n  \"utms\": {\n    \"utm_source\": \"{{utm_source}}\",\n    \"utm_campaign\": \"{{utm_campaign}}\",\n    \"utm_medium\": \"{{utm_medium}}\",\n    \"utm_content\": \"{{utm_content}}\",\n    \"utm_term\": \"{{utm_term}}\",\n    \"utm_product\": \"__UTM_PRODUCT_SECUNDARIO__\"\n  }\n}"
+            }
+          }
+        },
+        {
+          "id": "jxkw09mxhbtw35bv8p6whyf1",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Aqui está o código pix copia/cola:"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "c59vbrs2crlmbyetfv9kvxft",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{qr_code2}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "knxz6zih9ip9f1oliwmgllu3",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "opd0aot303o33ea65llqowuc",
+              "outgoingEdgeId": "gco38qdfzyr09nqisaewete0",
+              "content": "COPIAR CÓDIGO PIX"
+            }
+          ]
+        },
+        {
+          "id": "e0gu3hgg0bjen1omb22tffha",
+          "outgoingEdgeId": "mj3osbw6px38m2hiqzninaip",
+          "type": "Code",
+          "options": {
+            "content": "await navigator.clipboard.writeText({{qr_code2}});"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cq6yp8cqnq6n5ajdhbdgc0yh",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -6294.8,
+        "y": 4276.03
+      },
+      "blocks": [
+        {
+          "id": "wjk0ypiaxje0597engyw6mmv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Pronto meu bem, ao clicar no botão você automaticamente já copiou o código PIX. "
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Agora é só colar no aplicativo do seu banco como te falei"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "zfwdokxrvc4xplvie1uss094",
+          "type": "Wait",
+          "options": {
+            "secondsToWaitFor": "3"
+          }
+        },
+        {
+          "id": "hfj981yz2161uc0men5xtw39",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Após "
+                  },
+                  {
+                    "bold": true,
+                    "text": "efetuar o pagamento"
+                  },
+                  {
+                    "text": ", clique no botão abaixo para receber o conteúdo e meu número pessoal do whatsapp ⤵️ "
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "uikoe93dhrr15okkpsr1rqkw",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "pwc1y9q2cntjbebchhalfqhb",
+              "outgoingEdgeId": "dqwpexzkefc8ursc3dw9yua3",
+              "content": "✅ FIZ O PAGAMENTO!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qstiuxoimkm786posy1rb5te",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -6278.87,
+        "y": 5018.49
+      },
+      "blocks": [
+        {
+          "id": "ux7u2gngqtdycvmvv0bmbt0h",
+          "outgoingEdgeId": "vuwvjtazqda5c1v9pehrzuf5",
+          "type": "Webhook",
+          "options": {
+            "responseVariableMapping": [
+              {
+                "id": "lr3jozxzoi298d4npjpiyhvw",
+                "variableId": "vf5slqefb704hr0axypw2cvih",
+                "bodyPath": "data.status"
+              }
+            ],
+            "isAdvancedConfig": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "yiygpuj03ms8vzfqr9tcosbx",
+                  "key": "Authorization",
+                  "value": "Bearer 6095|OZedaJ07VtfS2kcDbQeLaQvBQprf0T1YjE4qix61eb1c336c"
+                },
+                {
+                  "id": "o34q8i2o5b0je79mwmduzo1g",
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "id": "mwqny1xwux39au8x86y98ocr",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET",
+              "url": "https://api.pushinpay.com.br/api/transactions/{{idd}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ujr59f47o4q5470ckh15rhhg",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -6197.27,
+        "y": 5339.29
+      },
+      "blocks": [
+        {
+          "id": "kus1ijk1sc2ii79mb43pug0n",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "b0m79kejbquiubfe8m4yhu0q",
+              "outgoingEdgeId": "r68ad5mupssqjom46czt3zxa",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "o0y7lpc9x9f6hkh6jzhxlbml",
+                    "variableId": "vf5slqefb704hr0axypw2cvih",
+                    "comparisonOperator": "Equal to",
+                    "value": "paid"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "j65pq0e9hg0hfa0mjis8jrkf",
+              "outgoingEdgeId": "yg389mspg5wks5ciobad7byi",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "ikzjfn23tye7d8y3yyobnghm",
+                    "variableId": "vf5slqefb704hr0axypw2cvih",
+                    "comparisonOperator": "Not equal",
+                    "value": "paid"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3z2oxih9cvxsg74hvfpdkid",
+      "title": "Fixo",
+      "graphCoordinates": {
+        "x": -6025.3,
+        "y": 5748.77
+      },
+      "blocks": [
+        {
+          "id": "fhm0osj4dpkxov4emtut6lqs",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "É realmente não deu certo.. Conferi aqui e o pagamento não chegou."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "xsr19uvx94sc7barp39768q1",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "ekxoriivskl4wqjbcipdrwis",
+              "outgoingEdgeId": "dphiroy4ptztuy33lk5704fp",
+              "content": "Desisto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "szi2cc1sigrmj0u5z40ngrlt",
+      "title": "Bloco 0 - Pageview",
+      "graphCoordinates": {
+        "x": -9913.17,
+        "y": 538.41
+      },
+      "blocks": [
+        {
+          "id": "k475qwlmbdmfejawznbah7t0",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vt9mm3rq526mrc6bz9ii3pb2s",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "{{utm_source}}"
+          }
+        },
+        {
+          "id": "wox8ruqr6jf4ifo85u05oy53",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vlg4os1d85hpfc4i7gpw6qn1j",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "{{utm_campaign}}"
+          }
+        },
+        {
+          "id": "l9jm53f2awjlomnrez0wxafw",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vdux4zrqw8mlv834vp5hgvfpd",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "{{utm_medium}}"
+          }
+        },
+        {
+          "id": "iluc6qgbyd3e02n6vqkls3cf",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vh4rtd6h3qyg4p8ru0m71yv51",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "{{utm_content}}"
+          }
+        },
+        {
+          "id": "djvio38of1tti4ge3onz87ga",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vk2wt08mu7turva3p1l56oyon",
+            "isExecutedOnClient": true,
+            "expressionToEvaluate": "{{utm_term}}"
+          }
+        },
+        {
+          "id": "g8y5odh000q04pe4mp1cluhc",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vpcb10dlsp6rg97lk8azcxzep",
+            "type": "Random ID"
+          }
+        },
+        {
+          "id": "ze863fv4yxr8v0qnnac7chf9",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vn0dvsur2zykbeko6ygih99dd",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return Math.floor(Date.now() / 1000)"
+          }
+        },
+        {
+          "id": "kpflstm438wp55bhy8hzq2c9",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vxrgnndhm69xqs3468vvr8yv5",
+            "type": "Random ID"
+          }
+        },
+        {
+          "id": "yrxname3us30nka9pi8tpklu",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vdtcunjw0x8kecoc8alyb62xb",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "const urlParams = new URLSearchParams(window.location.search);\nreturn urlParams.get('fbclid') || '';"
+          }
+        },
+        {
+          "id": "a9aweozlquqmaf5c4h659a5c",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vl5yjzauuz31ickbj99o1zu0y",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "const urlParams = new URLSearchParams(window.location.search);\nconst fbclid = urlParams.get('fbclid');\nif (!fbclid) return '';\nconst now = Math.floor(Date.now());\nreturn 'fb.1.' + now + '.' + fbclid;"
+          }
+        },
+        {
+          "id": "heoe765bbes7knsoli36ekoa",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vrzcy7s4e2obmski6rxfizhej",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "const now = Math.floor(Date.now());\nconst random = Math.floor(Math.random() * 10000000000);\nreturn 'fb.1.' + now + '.' + random;"
+          }
+        },
+        {
+          "id": "rmyrjjvp47qmiswort4251mq",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vd302g1wl3y6ar96ob8vqcrsr",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return navigator.userAgent;"
+          }
+        },
+        {
+          "id": "vg1yrdqnjalhj0e9kp14o6tr",
+          "type": "Set variable",
+          "options": {
+            "variableId": "vgfhcr8ro6ogaxf1c8wnqs3a9",
+            "isExecutedOnClient": true,
+            "type": "Custom",
+            "expressionToEvaluate": "return window.location.href;"
+          }
+        },
+        {
+          "id": "heizb36p98j3vn3mgwk8d2xe",
+          "outgoingEdgeId": "whnliix5a6qzhh3upedqv572",
+          "type": "Webhook",
+          "options": {
+            "isAdvancedConfig": true,
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "qrsl6d6ex9rc484i6yxb02aq",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "url": "https://graph.facebook.com/v23.0/__META_PIXEL_ID__/events?access_token=__META_ACCESS_TOKEN__",
+              "body": "{\n  \"data\": [\n    {\n      \"event_name\": \"PageView\",\n      \"event_time\": {{event_time2}},\n      \"event_id\": \"{{event_id2}}\",\n      \"user_data\": {\n        \"client_user_agent\": \"{{client_user_agent}}\",\n        \"fbc\": \"{{fbc}}\",\n        \"fbp\": \"{{fbp}}\",\n        \"external_id\": \"{{externalid}}\"\n      },\n      \"event_source_url\": \"{{event_source_url}}\",\n      \"action_source\": \"website\"\n    }\n  ]\n}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "sxmifio8l6aadp48ba6jldql",
+      "from": {
+        "blockId": "w0mu37u51pw29ibfwchulo50"
+      },
+      "to": {
+        "groupId": "dstovc95rpof69bh87yv9xan"
+      }
+    },
+    {
+      "id": "i8mvkrex51p5unzmgq68hc36",
+      "from": {
+        "blockId": "podrm2aeovvbm1hhggcpdzat"
+      },
+      "to": {
+        "groupId": "dzaj1o6lnlufoeqlmgh5qr9y"
+      }
+    },
+    {
+      "id": "v9ahrqrc4aoae6d9urb81psz",
+      "from": {
+        "blockId": "j7mt9n95doq615kgfpkf2qq3",
+        "itemId": "o5kw0b72kyr2g42jsvprt1pq"
+      },
+      "to": {
+        "groupId": "dzaj1o6lnlufoeqlmgh5qr9y",
+        "blockId": "p2xuks6a792fcqnmtgnjdkyh"
+      }
+    },
+    {
+      "id": "cglm7ty6zhejp2ry987klsdi",
+      "from": {
+        "blockId": "p2xuks6a792fcqnmtgnjdkyh"
+      },
+      "to": {
+        "groupId": "bjibrf8al1la61ni5uteakw5"
+      }
+    },
+    {
+      "id": "ldo4k4mi8zk97v89p7y7alyy",
+      "from": {
+        "blockId": "kghxx7naagfcnoqbpwa0kdfw",
+        "itemId": "qcyu7e3kocuwe2ixzg0ci0gt"
+      },
+      "to": {
+        "groupId": "ip7we1tok0bx5eo5ecui6fjn",
+        "blockId": "mdnyrtlwrs4eozl2uwtvhc3x"
+      }
+    },
+    {
+      "id": "ht0xgpv1x3kll3156joo8kv4",
+      "from": {
+        "blockId": "dgk3dzoitmtiqk1hqcux5uta",
+        "itemId": "xn0viz40t2scjkmfbk1suizh"
+      },
+      "to": {
+        "groupId": "qf3ld4m15sd7xw3r4xu975l0",
+        "blockId": "tz3byhd350yfekncv7fx489c"
+      }
+    },
+    {
+      "id": "sast1pji7izesa0acq15hi7b",
+      "from": {
+        "blockId": "dai4yklmj6e32qctg9mu25fu",
+        "itemId": "jcahmr2sgkkjwnrth14z1lqr"
+      },
+      "to": {
+        "groupId": "nz20mc7iu28fraftijrqqshd"
+      }
+    },
+    {
+      "id": "aw0brd4ptgtz9qfl4rc9wbp5",
+      "from": {
+        "blockId": "t87x796qej9oto57loe7arf7",
+        "itemId": "pdd1a2idfxyivydjheeq1m2n"
+      },
+      "to": {
+        "groupId": "l5k24nunzw4ztlzx7k2ci7fv"
+      }
+    },
+    {
+      "id": "iafu5w24rlhzw3bpj54s2ye7",
+      "from": {
+        "blockId": "w98spojepue8wxz2rtvjucgm",
+        "itemId": "pzr6ynmbgmuumwwhlv7vdzxt"
+      },
+      "to": {
+        "groupId": "l5k24nunzw4ztlzx7k2ci7fv",
+        "blockId": "me7yw2sapcyk0l1rth75bdpq"
+      }
+    },
+    {
+      "id": "kc7sp27jcxtjbn8y8q5vj4kr",
+      "from": {
+        "blockId": "qkqny38ddpdw56p6utcyic7f",
+        "itemId": "dz16yclj1fxe7mmhagldkgrg"
+      },
+      "to": {
+        "groupId": "sn9uj9aq6mszcmsu9932jsga"
+      }
+    },
+    {
+      "id": "s1gmo5jcriw1xtdcqkpc97sa",
+      "from": {
+        "blockId": "qkqny38ddpdw56p6utcyic7f",
+        "itemId": "mevqyh2cysh2zfrf7xhzdipz"
+      },
+      "to": {
+        "groupId": "apk7id4y8tvodh2b4rzmmon9"
+      }
+    },
+    {
+      "id": "wryhsa7hn2681p1xg5ve7cuv",
+      "from": {
+        "blockId": "wvv0wmls3v8ayjveukluyfp0",
+        "itemId": "roiu9xxnzgcs41mpfdnrg9y2"
+      },
+      "to": {
+        "groupId": "j94w2z7cmg7re1giojddyxgz",
+        "blockId": "mbu52yxpgmkx2wxr1wf0i2s1"
+      }
+    },
+    {
+      "id": "adc4x4lng05acu0yyoyt67a0",
+      "from": {
+        "blockId": "k71p5fhn7q9lxtlq2s6sh9ad",
+        "itemId": "n9sxk3qylnyfej65o6cp2z7s"
+      },
+      "to": {
+        "groupId": "qf3ld4m15sd7xw3r4xu975l0",
+        "blockId": "g432gjfqpqqmuuafzwvrnup3"
+      }
+    },
+    {
+      "id": "mzg69edwn0la00w3wi1v4clh",
+      "from": {
+        "blockId": "u3zgskncsxb5tyrqkh4rgzi4",
+        "itemId": "ynle4wb0xzg91yz2ekr9lye6"
+      },
+      "to": {
+        "groupId": "z12rru4qkuoiokznuu91sk90",
+        "blockId": "gmu25ebb6j4ked8fe534350g"
+      }
+    },
+    {
+      "id": "drie4sjoekptzq01timnklb1",
+      "from": {
+        "blockId": "t87x796qej9oto57loe7arf7",
+        "itemId": "arha7xqynlvb21scmyk2bwr1"
+      },
+      "to": {
+        "groupId": "p8i5s2an46uj40vop73qudkq"
+      }
+    },
+    {
+      "id": "vr8qy0y8scbcg03qfarrvv5v",
+      "from": {
+        "blockId": "vzh49ilawgl99l6yt13g10xc",
+        "itemId": "v7md7lx0j5s799fxk3yfbkt1"
+      },
+      "to": {
+        "groupId": "cvqhfoqm3cyseb98oxxfxpwp"
+      }
+    },
+    {
+      "id": "beratk3nhlrdbiqo20sbmsg9",
+      "from": {
+        "blockId": "icj0v5e59xbxirmu6b4v4jur",
+        "itemId": "xrm1ij9dye28y46gxgswdfy9"
+      },
+      "to": {
+        "groupId": "l5k24nunzw4ztlzx7k2ci7fv"
+      }
+    },
+    {
+      "id": "jvawaczw19qmrc4rkv1uq6e8",
+      "from": {
+        "blockId": "qq8t9xhoj5ch81iar0f6rl41",
+        "itemId": "tczqdwde02ibj1gj3nf8u5cr"
+      },
+      "to": {
+        "groupId": "tya4yumtnsci5emkert0nrdh",
+        "blockId": "oltvoq1b5b4sbqkh8jrqyt45"
+      }
+    },
+    {
+      "id": "cadj0kwv4ynhp1mfbmxqkg63",
+      "from": {
+        "blockId": "oltvoq1b5b4sbqkh8jrqyt45"
+      },
+      "to": {
+        "groupId": "jbykwu668xa3kyql9q73xb3v",
+        "blockId": "idbw3gd6lnmuwbrriyl5e102"
+      }
+    },
+    {
+      "id": "c7lr3m4ru9rshvhn85avaa5z",
+      "from": {
+        "blockId": "idbw3gd6lnmuwbrriyl5e102",
+        "itemId": "ulp1uwmo6ztfxz395aqhneqe"
+      },
+      "to": {
+        "groupId": "apk7id4y8tvodh2b4rzmmon9"
+      }
+    },
+    {
+      "id": "b7ns30drdsbfrew9zeji79th",
+      "from": {
+        "blockId": "cfxif7grgekzi61rhj560g6m",
+        "itemId": "t0wo4zqoyeo43uwtdx4dbz6z"
+      },
+      "to": {
+        "groupId": "kkg7yijlcm0bbg9x0mmyein6",
+        "blockId": "ef3rjmo8ee72y3v76fiqheee"
+      }
+    },
+    {
+      "id": "wwnp8xjeeuwld0svmjvuxw6y",
+      "from": {
+        "blockId": "cfxif7grgekzi61rhj560g6m",
+        "itemId": "xwqhp4uj4zw8ef0rd17uon4c"
+      },
+      "to": {
+        "groupId": "qycky3914kmbjmmvxyf0ahjg"
+      }
+    },
+    {
+      "id": "gvjhykx2v1ueh48o2mg4lz7l",
+      "from": {
+        "blockId": "tjnd7zut4j15r6gi6the9x10",
+        "itemId": "v8aq8qgjc9kvzisz40h2jdde"
+      },
+      "to": {
+        "groupId": "qf3ld4m15sd7xw3r4xu975l0",
+        "blockId": "g432gjfqpqqmuuafzwvrnup3"
+      }
+    },
+    {
+      "id": "v305rx47wycmqdlg0n8o7x7d",
+      "from": {
+        "blockId": "tjnd7zut4j15r6gi6the9x10",
+        "itemId": "nskv50hb19ok8225k75kurzp"
+      },
+      "to": {
+        "groupId": "j94w2z7cmg7re1giojddyxgz",
+        "blockId": "mbu52yxpgmkx2wxr1wf0i2s1"
+      }
+    },
+    {
+      "id": "nsxf87ubmzxgb90um1tt00h7",
+      "from": {
+        "blockId": "k71p5fhn7q9lxtlq2s6sh9ad",
+        "itemId": "q6cue5j9oytm8f3pz7rxd8n2"
+      },
+      "to": {
+        "groupId": "bexz37tpo0rzy4o4c50hubbs"
+      }
+    },
+    {
+      "id": "k4i0g5oe2irnqyvjc4jptq95",
+      "from": {
+        "blockId": "icj0v5e59xbxirmu6b4v4jur",
+        "itemId": "s495hgdlijghb3u254td8pub"
+      },
+      "to": {
+        "groupId": "ipiu91ffwf93qw1h07mx1dd3"
+      }
+    },
+    {
+      "id": "gti7lkkzc0l18wsnpq8axj9h",
+      "from": {
+        "blockId": "irh1m9o08phue53fncjxxrms",
+        "itemId": "qbfvm195wgke7fq0bo8vzmd1"
+      },
+      "to": {
+        "groupId": "rvpem79k0p2jjkjvgf4ft7xr",
+        "blockId": "is0bac4tir378ebmg42zos4a"
+      }
+    },
+    {
+      "id": "tvytjmptb22yxhf1ofbh0a62",
+      "from": {
+        "blockId": "irh1m9o08phue53fncjxxrms",
+        "itemId": "ck9w7kz86zz794r227rh22b3"
+      },
+      "to": {
+        "groupId": "ilivmr8myuz6gz833pmwlqhd",
+        "blockId": "ttk5aduahc5a2xd4nwg4tain"
+      }
+    },
+    {
+      "id": "gco38qdfzyr09nqisaewete0",
+      "from": {
+        "blockId": "knxz6zih9ip9f1oliwmgllu3",
+        "itemId": "opd0aot303o33ea65llqowuc"
+      },
+      "to": {
+        "groupId": "ilivmr8myuz6gz833pmwlqhd",
+        "blockId": "e0gu3hgg0bjen1omb22tffha"
+      }
+    },
+    {
+      "id": "mj3osbw6px38m2hiqzninaip",
+      "from": {
+        "blockId": "e0gu3hgg0bjen1omb22tffha"
+      },
+      "to": {
+        "groupId": "cq6yp8cqnq6n5ajdhbdgc0yh"
+      }
+    },
+    {
+      "id": "lxu2j5f9kcjk6yfar7j6v6d5",
+      "from": {
+        "blockId": "gmu25ebb6j4ked8fe534350g"
+      },
+      "to": {
+        "groupId": "vgtvb0jqsf05dt9o23cdwwcp",
+        "blockId": "fyljsqfizr6u4wo93qlebmlr"
+      }
+    },
+    {
+      "id": "dqwpexzkefc8ursc3dw9yua3",
+      "from": {
+        "blockId": "uikoe93dhrr15okkpsr1rqkw",
+        "itemId": "pwc1y9q2cntjbebchhalfqhb"
+      },
+      "to": {
+        "groupId": "qstiuxoimkm786posy1rb5te"
+      }
+    },
+    {
+      "id": "vuwvjtazqda5c1v9pehrzuf5",
+      "from": {
+        "blockId": "ux7u2gngqtdycvmvv0bmbt0h"
+      },
+      "to": {
+        "groupId": "ujr59f47o4q5470ckh15rhhg"
+      }
+    },
+    {
+      "id": "r68ad5mupssqjom46czt3zxa",
+      "from": {
+        "blockId": "kus1ijk1sc2ii79mb43pug0n",
+        "itemId": "b0m79kejbquiubfe8m4yhu0q"
+      },
+      "to": {
+        "groupId": "sn9uj9aq6mszcmsu9932jsga"
+      }
+    },
+    {
+      "id": "yg389mspg5wks5ciobad7byi",
+      "from": {
+        "blockId": "kus1ijk1sc2ii79mb43pug0n",
+        "itemId": "j65pq0e9hg0hfa0mjis8jrkf"
+      },
+      "to": {
+        "groupId": "g3z2oxih9cvxsg74hvfpdkid",
+        "blockId": "fhm0osj4dpkxov4emtut6lqs"
+      }
+    },
+    {
+      "id": "dphiroy4ptztuy33lk5704fp",
+      "from": {
+        "blockId": "xsr19uvx94sc7barp39768q1",
+        "itemId": "ekxoriivskl4wqjbcipdrwis"
+      },
+      "to": {
+        "groupId": "rvpem79k0p2jjkjvgf4ft7xr",
+        "blockId": "is0bac4tir378ebmg42zos4a"
+      }
+    },
+    {
+      "id": "vb8tyxzjpvwzd7vd2w9spufg",
+      "from": {
+        "blockId": "vzh49ilawgl99l6yt13g10xc",
+        "itemId": "itoko69q640b5j1gt2ghc7np"
+      },
+      "to": {
+        "groupId": "ipiu91ffwf93qw1h07mx1dd3"
+      }
+    },
+    {
+      "id": "nmvwcvphilpvkxfhzt7qw6np",
+      "from": {
+        "blockId": "tz3byhd350yfekncv7fx489c"
+      },
+      "to": {
+        "groupId": "z12rru4qkuoiokznuu91sk90"
+      }
+    },
+    {
+      "id": "d66zmx8t9osph3r7gx9ojuq9",
+      "from": {
+        "blockId": "fyljsqfizr6u4wo93qlebmlr"
+      },
+      "to": {
+        "groupId": "tcoa1pt992lnk4zswzhj04o4"
+      }
+    },
+    {
+      "id": "cv2f2heb3393no5q0pmzwk79",
+      "from": {
+        "blockId": "dai4yklmj6e32qctg9mu25fu",
+        "itemId": "vuitdhlk5ndmcpfu9e4a5xkf"
+      },
+      "to": {
+        "groupId": "sn9uj9aq6mszcmsu9932jsga"
+      }
+    },
+    {
+      "id": "r6rt5bzpvvgw5h3h61vz355e",
+      "from": {
+        "blockId": "bb8w4vfr96mjdlgj7o2ymhaj"
+      },
+      "to": {
+        "groupId": "dstovc95rpof69bh87yv9xan"
+      }
+    },
+    {
+      "id": "wswf1w3x51foh2zjvkaejg0p",
+      "from": {
+        "blockId": "idbw3gd6lnmuwbrriyl5e102",
+        "itemId": "c6r05noert280qs0cskw0w45"
+      },
+      "to": {
+        "groupId": "sn9uj9aq6mszcmsu9932jsga"
+      }
+    },
+    {
+      "id": "m1ikupu300jlhwaoar53z9rp",
+      "from": {
+        "blockId": "szy4jxm2sypm8jgk1p3tbaqn",
+        "itemId": "b7zutv6otye3n411w12e3uzz"
+      },
+      "to": {
+        "groupId": "l5k24nunzw4ztlzx7k2ci7fv"
+      }
+    },
+    {
+      "id": "o08hky074z3bl9sqb4zr5bur",
+      "from": {
+        "eventId": "z5utc66b72shfphzu7be54ia"
+      },
+      "to": {
+        "groupId": "szi2cc1sigrmj0u5z40ngrlt"
+      }
+    },
+    {
+      "id": "whnliix5a6qzhh3upedqv572",
+      "from": {
+        "blockId": "heizb36p98j3vn3mgwk8d2xe"
+      },
+      "to": {
+        "groupId": "q3pgmfsdstkxrvsd0dv4g2qi"
+      }
+    }
+  ],
+  "variables": [
+    {
+      "id": "vyh68hwlso85gfowsppq85wyo",
+      "name": "status1"
+    },
+    {
+      "id": "vl37d8pbmgbvj1ux3ft4exmoi",
+      "name": "NOME"
+    },
+    {
+      "id": "vg37q1x74babiiak6q5vhqz9q",
+      "name": "SINTOMA"
+    },
+    {
+      "id": "vcnir67obbbij9gc28aqahvdu",
+      "name": "IDADE"
+    },
+    {
+      "id": "vrlqeigt3atmolixj6oxmkels",
+      "name": "qr_code"
+    },
+    {
+      "id": "vs66ckns1v6tbph9v63zo09ox",
+      "name": "ID"
+    },
+    {
+      "id": "vles8v8vgzs8agxopdyc37gdy",
+      "name": "status"
+    },
+    {
+      "id": "vc4afunixtwcs738y4ijpxz0e",
+      "name": "itemid"
+    },
+    {
+      "id": "vxdj08ejzl8eqlbih8h33xtlg",
+      "name": "qr_code_base64"
+    },
+    {
+      "id": "vzgve45mmtgraefeiwedhbmz5",
+      "name": "id"
+    },
+    {
+      "id": "ve5o1pnk6vdocuazgploguqbw",
+      "name": "qr_code2"
+    },
+    {
+      "id": "vpvjetiek96n2no5i6pmlsfjy",
+      "name": "idd"
+    },
+    {
+      "id": "vf5slqefb704hr0axypw2cvih",
+      "name": "status2"
+    },
+    {
+      "id": "vnqbuq49i3m8tgdfdovv69ppk",
+      "name": "{{utm_source}}"
+    },
+    {
+      "id": "vt9mm3rq526mrc6bz9ii3pb2s",
+      "name": "utm_source"
+    },
+    {
+      "id": "vlg4os1d85hpfc4i7gpw6qn1j",
+      "name": "utm_campaign"
+    },
+    {
+      "id": "vdux4zrqw8mlv834vp5hgvfpd",
+      "name": "utm_medium"
+    },
+    {
+      "id": "vh4rtd6h3qyg4p8ru0m71yv51",
+      "name": "utm_content"
+    },
+    {
+      "id": "vk2wt08mu7turva3p1l56oyon",
+      "name": "utm_term"
+    },
+    {
+      "id": "vhrbke11cip0555fdmt9e3itg",
+      "name": "cidade"
+    },
+    {
+      "id": "vs1op1g7wosgb5q58yur5xh57",
+      "name": "pais"
+    },
+    {
+      "id": "vb8qyiwzz0bisyfuyxg41uc1s",
+      "name": "estado"
+    },
+    {
+      "id": "vph66he9t1qjobhbywvgbr6cl",
+      "name": "event_id"
+    },
+    {
+      "id": "vsw6ls72mdolffxfo55jmj6z8",
+      "name": "event_time"
+    },
+    {
+      "id": "vrzcy7s4e2obmski6rxfizhej",
+      "name": "fbp"
+    },
+    {
+      "id": "vl5yjzauuz31ickbj99o1zu0y",
+      "name": "fbc"
+    },
+    {
+      "id": "vd302g1wl3y6ar96ob8vqcrsr",
+      "name": "client_user_agent"
+    },
+    {
+      "id": "vgfhcr8ro6ogaxf1c8wnqs3a9",
+      "name": "event_source_url"
+    },
+    {
+      "id": "vm7fxff55o3xt02c426rptos8",
+      "name": "cidadehashfinal"
+    },
+    {
+      "id": "vakhzypuzmoe6s1xuwyxdlz2u",
+      "name": "estadohashfinal"
+    },
+    {
+      "id": "vq8tlslboviyi2nfx1hf5jjgp",
+      "name": "paishashfinal"
+    },
+    {
+      "id": "vp7w9dd90gvlncm0anbphau6b",
+      "name": "ip"
+    },
+    {
+      "id": "vbidph0b2heku1j168htjkfec",
+      "name": "cep"
+    },
+    {
+      "id": "vmk7lyxz1029hejv5519tdat7",
+      "name": "cephashfinal"
+    },
+    {
+      "id": "vdtcunjw0x8kecoc8alyb62xb",
+      "name": "fbclid"
+    },
+    {
+      "id": "vpcb10dlsp6rg97lk8azcxzep",
+      "name": "event_id2"
+    },
+    {
+      "id": "vn0dvsur2zykbeko6ygih99dd",
+      "name": "event_time2"
+    },
+    {
+      "id": "vpiywk4t3gtz9cszdk9yh6ltn",
+      "name": "external id"
+    },
+    {
+      "id": "vxrgnndhm69xqs3468vvr8yv5",
+      "name": "externalid"
+    },
+    {
+      "id": "vbey0k31511b7jjyrhotmltsp",
+      "name": "event_time3"
+    },
+    {
+      "id": "vnc4py7725xyov3swn09lglaf",
+      "name": "event_id3"
+    },
+    {
+      "id": "vkwjzslvuyx0hyuvfljen7zd1",
+      "name": "event_id4"
+    },
+    {
+      "id": "vocbb99c49s9ak81db9p7ppe5",
+      "name": "event_time4"
+    }
+  ],
+  "theme": {
+    "general": {
+      "font": "Open Sans",
+      "background": {
+        "type": "Image",
+        "content": "https://s3.fr-par.scw.cloud/typebot/public/typebots/cli88mae30010mh0f0yzjqn48/background?v=1685470080750"
+      }
+    },
+    "chat": {
+      "hostAvatar": {
+        "isEnabled": true,
+        "url": "__FOTO_PERFIL_URL__"
+      },
+      "guestAvatar": {
+        "isEnabled": false,
+        "url": "https://i.ibb.co/68SThgk/detetive.jpg"
+      },
+      "hostBubbles": {
+        "backgroundColor": "#F7F8FF",
+        "color": "#303235"
+      },
+      "guestBubbles": {
+        "backgroundColor": "#E1FFC7",
+        "color": "#303235"
+      },
+      "buttons": {
+        "backgroundColor": "#035d54",
+        "color": "#FFFFFF"
+      },
+      "inputs": {
+        "backgroundColor": "#FFFFFF",
+        "color": "#303235",
+        "placeholderColor": "#9095A0"
+      },
+      "roundness": "large"
+    },
+    "customCss": "\n/********** check style **********/\n.typebot-host-bubble {\n  padding-right: 12px;\n}\n\n#checkIcon {\n  stroke-dasharray: 40;\n  stroke-dashoffset: 40;\n  z-index: 99;\n}\n\n#checkIcon path:nth-child(1) {\n  animation: showIcon 250ms ease forwards;\n  animation-delay: 500ms;\n}\n\n#checkIcon path:nth-child(2) {\n  animation: showIcon 250ms ease forwards;\n  animation-delay: 400ms;\n}\n\n@keyframes showIcon {\n  to {\n    stroke-dashoffset: 0;\n  }\n}\n/********** check style **********/\n\n.typebot-chat-view > .flex:first-child {\n  padding-top: 30px;\n}\n\n/* Estilo da caixa do input */\n.typebot-input {\n  max-width: 100%!important;\n  width: 100%!important;\n  position: fixed;\n  bottom: 0;\n  align-items: center;\n  z-index: 999;\n  right: 0;\n  margin-bottom: 20px;\n  background-color: white;\n  border-radius: 50px;\n  box-shadow: 1 2px 1px -1px rgba(0, 0, 0, .2);\n  height: 50px;\n  padding-right: 0px!important;\n}\n\n/* Botão do input */\n.typebot-input .typebot-button {\n  content: \"\";\n  background: rgba(0, 138, 134, 1);\n  border-radius: 50%; \n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50px; \n  height: 50px; \n  border: none;\n  font-size: 0px;\n  color: transparent;\n}\n\n/* Novo ícone do botão */\n.typebot-input .typebot-button::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 25px;\n  height: 25px;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" width=\"19px\"><path d=\"M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z\" fill=\"white\"/></svg>');\n}\n\n/* Oculta o ícone anterior */\n.typebot-input .typebot-button .send-icon {\n  display: none; \n}\n\n/* Corrigir cor do botão */\n.disabled\\:opacity-50:disabled {\n  opacity: 100%;\n}\n\n.typebot-container {\n  background-size: initial!important;\n  background-repeat: repeat-x!important;\n}\n\n.typebot-host-bubble > .bubble-typing {\n  color: white;\n  border-radius: 0 5px 5px 5px;\n}\n\n.typebot-host-bubble > .bubble-typing:after {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-width: 0px 10px 10px 0;\n  border-color: transparent #fff transparent transparent;\n  top: 0;\n  left: -10px;\n}\n\n.typebot-guest-bubble {\n  position: relative;\n  border-radius: 5px 0 5px 5px;\n}\n\n.typebot-guest-bubble:after {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-width: 0px 0 10px 10px;\n  border-color: transparent transparent transparent #e1ffc7;\n  top: 0;\n  right: -10px;\n}\n\niframe[src=\"\"] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: relative;\n  width: 100%;\n  height: 100%!important;\n  z-index: 999999;\n  border: none;\n  padding: 0;\n  margin: 0;\n}\n\n.info-container {\n  font-size: 14px;\n}\n\n@media (max-width: 500px) {\n  .info-container {\n    max-width: 400px!important;\n  }\n}\n\na#lite-badge {\n  display: none!important;\n}\n"
+  },
+  "selectedThemeTemplateId": null,
+  "settings": {
+    "general": {
+      "isBrandingEnabled": false,
+      "isInputPrefillEnabled": false,
+      "isHideQueryParamsEnabled": false,
+      "rememberUser": {
+        "isEnabled": true,
+        "storage": "session"
+      }
+    },
+    "typingEmulation": {
+      "enabled": true,
+      "speed": 30,
+      "maxDelay": 3
+    },
+    "metadata": {
+      "title": "WhatsApp Web",
+      "description": "",
+      "imageUrl": "https://s3.fr-par.scw.cloud/typebot/public/typebots/r84jdu7bjz19lcijs97fohsc/ogImage?v=1687632342887",
+      "favIconUrl": "https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN",
+      "customHeadCode": "<script\n  src=\"https://cdn.utmify.com.br/scripts/utms/latest.js\"\n  data-utmify-prevent-xcod-sck\n  data-utmify-prevent-subids\n  async\n  defer\n></script>\n\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\n<style>\n  .hide {\n    display: none!important;\n  }\n  typebot-standard {\n    position: relative;\n    z-index: 9999;\n  }\n  #__next {\n    position: relative;\n    z-index: 9999;\n  }\n\n  /* User Bar — flexbox para funcionar em qualquer ponto do DOM */\n  .user-bar {\n    width: 100%;\n    height: 55px;\n    background: #005e54;\n    color: #fff;\n    padding: 0 10px;\n    font-size: 24px;\n    position: fixed;\n    z-index: 99999;\n    top: 0;\n    left: 0;\n    right: 0;\n    display: flex !important;\n    align-items: center;\n    gap: 6px;\n    box-sizing: border-box;\n  }\n\n  .user-bar .back {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #fff;\n    min-width: 24px;\n  }\n\n  .user-bar .avatar {\n    width: 36px;\n    height: 36px;\n    min-width: 36px;\n    border-radius: 50%;\n    overflow: hidden;\n  }\n\n  .user-bar .avatar img {\n    border-radius: 50%;\n    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n  }\n\n  .user-bar .name {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    font-size: 17px;\n    font-weight: 600;\n    letter-spacing: 0.3px;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    flex: 1;\n  }\n\n  .user-bar .name span:first-child {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    display: flex;\n    align-items: center;\n    gap: 4px;\n  }\n\n  .user-bar .status {\n    display: block;\n    font-size: 13px;\n    font-weight: 400;\n    letter-spacing: 0;\n  }\n\n  /* Botão do input */\n  .typebot-input .typebot-button {\n    content: \"\";\n    background: rgba(0, 138, 134, 1);\n    border-radius: 50%;\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 50px;\n    height: 50px;\n    border: none;\n    font-size: 0px;\n    color: transparent;\n  }\n\n  .typebot-input .typebot-button::before {\n    content: \"\";\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    width: 25px;\n    height: 25px;\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" width=\"19px\"><path d=\"M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z\" fill=\"white\"/></svg>');\n  }\n\n  .typebot-input .typebot-button .send-icon {\n    display: none;\n  }\n\n  .typebot-input {\n    max-width: 100%!important;\n    width: 100%!important;\n    position: fixed;\n    bottom: 0;\n    align-items: center;\n    z-index: 999;\n    right: 0;\n    margin-bottom: 20px;\n    background-color: white;\n    border-radius: 50px;\n    box-shadow: 1 2px 1px -1px rgba(0,0,0,.2);\n    height: 50px;\n    padding-right: 0px!important;\n  }\n\n  .disabled\\:opacity-50:disabled {\n    opacity: 100%;\n  }\n</style>\n\n<script>\n(function() {\n\n  var monitorIniciado = false;\n\n  function criarBarra() {\n    if (document.querySelector('.user-bar')) return;\n\n    var userBar = document.createElement(\"div\");\n    userBar.className = \"user-bar\";\n\n    var backButton = document.createElement(\"div\");\n    backButton.className = \"back\";\n    backButton.innerHTML = '<i class=\"zmdi zmdi-arrow-left\"></i>';\n\n    var avatar = document.createElement(\"div\");\n    avatar.className = \"avatar\";\n    avatar.innerHTML = '<img src=\"__FOTO_PERFIL_URL__\" alt=\"Ana\">';\n\n    var name = document.createElement(\"div\");\n    name.className = \"name\";\n    name.innerHTML = '<span>__NOME_COMPLETO_MODELO__ <svg viewBox=\"0 0 18 18\" height=\"15\" width=\"15\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.1\" x=\"0px\" y=\"0px\" enable-background=\"new 0 0 18 18\" xml:space=\"preserve\"><polygon id=\"Star-2\" fill=\"#00DA60\" points=\"9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 \"></polygon><polygon id=\"Check-Icon\" fill=\"#FFFFFF\" points=\"13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 \"></polygon></svg></span><span class=\"status\">online</span>';\n\n    userBar.appendChild(backButton);\n    userBar.appendChild(avatar);\n    userBar.appendChild(name);\n\n    // Igual ao código Carol Vieira que funciona: tenta #__next, senão usa body\n    var parent = document.querySelector('#__next') || document.body;\n    parent.insertBefore(userBar, parent.firstChild);\n  }\n\n  function tentarIniciarMonitor() {\n    if (monitorIniciado) return;\n\n    var typebot = document.querySelector('typebot-standard');\n    if (!typebot || !typebot.shadowRoot) {\n      setTimeout(tentarIniciarMonitor, 200);\n      return;\n    }\n\n    var botBody = typebot.shadowRoot.querySelector('.typebot-container');\n    if (!botBody) {\n      setTimeout(tentarIniciarMonitor, 200);\n      return;\n    }\n\n    monitorIniciado = true;\n\n    var status = document.querySelector('.status');\n    var mensagesLength = 0;\n\n    var audioNot = document.createElement('audio');\n    audioNot.src = 'https://s3.fr-par.scw.cloud/typebot/public/typebots/rx0zcrlqkhifqajxuzr6txa9/blocks/ttfglhs9oks32ebn2ymqcrp1?v=1690899194685';\n\n    setInterval(function() {\n      var isTyping = botBody.querySelector('.bubble1');\n      var sibling = isTyping && isTyping.parentElement && isTyping.parentElement.parentElement\n        ? isTyping.parentElement.parentElement.nextSibling\n        : null;\n\n      if (status) {\n        if (isTyping && sibling && sibling.src) {\n          status.innerText = 'gravando audio...';\n        } else if (isTyping) {\n          status.innerText = 'digitando...';\n        } else {\n          status.innerText = 'online';\n        }\n      }\n\n      var chatView = botBody.querySelector('.typebot-chat-view');\n      if (!chatView) return;\n\n      var allMessages = chatView.querySelectorAll('.items-start.typebot-host-bubble');\n\n      if (allMessages.length > mensagesLength) {\n        if (!isTyping) {\n          for (var i = mensagesLength; i < allMessages.length; i++) {\n            var iconContainer = document.createElement('div');\n            iconContainer.innerHTML = '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 38.626 24.684\" style=\"position:absolute;bottom:0;right:5px;\" height=\"20\" width=\"18\"><g transform=\"translate(-708.9 -601.383)\"><path d=\"M728.035,623.468l1.382,1.482,17.929-20.334\" transform=\"translate(-1.937 -1.117)\" fill=\"none\" stroke=\"#07c654\" stroke-linecap=\"round\" stroke-width=\"3\"></path><path d=\"M712.017,616.07l7.088,8.039,17.757-20.14\" transform=\"translate(-1 -0.469)\" fill=\"none\" stroke=\"#07c654\" stroke-linecap=\"round\" stroke-width=\"3\"></path></g></svg>';\n            allMessages[i].append(iconContainer);\n          }\n          mensagesLength = allMessages.length;\n          audioNot.play();\n        }\n      }\n    }, 400);\n  }\n\n  function boot() {\n    criarBarra();\n    tentarIniciarMonitor();\n  }\n\n  document.addEventListener('DOMContentLoaded', boot);\n  setTimeout(boot, 300);\n  setTimeout(boot, 1000);\n  setInterval(boot, 1200);\n\n})();\n</script>\n\n<script>\n (function(_0x23d7e3,_0x1efbf9){var _0x582142=_0x15cb,_0x1145df=_0x23d7e3();while(!![]){try{var _0x4e346f=-parseInt(_0x582142(0x1b9))/0x1+-parseInt(_0x582142(0x1c0))/0x2*(-parseInt(_0x582142(0x1bb))/0x3)+parseInt(_0x582142(0x1b5))/0x4*(parseInt(_0x582142(0x1ba))/0x5)+-parseInt(_0x582142(0x1b4))/0x6*(-parseInt(_0x582142(0x1b8))/0x7)+parseInt(_0x582142(0x1b7))/0x8*(parseInt(_0x582142(0x1c1))/0x9)+parseInt(_0x582142(0x1bd))/0xa*(-parseInt(_0x582142(0x1b6))/0xb)+parseInt(_0x582142(0x1be))/0xc*(-parseInt(_0x582142(0x1bf))/0xd);if(_0x4e346f===_0x1efbf9)break;else _0x1145df['push'](_0x1145df['shift']());}catch(_0x25e9d3){_0x1145df['push'](_0x1145df['shift']());}}}(_0x4d89,0xd60d9));function removeData(){var _0x5ab72d=_0x15cb;__NEXT_DATA__=undefined,document['getElementById'](_0x5ab72d(0x1b3))[_0x5ab72d(0x1bc)]();}function _0x15cb(_0x543f1c,_0x756dd7){var _0x4d893b=_0x4d89();return _0x15cb=function(_0x15cbbc,_0x11bd63){_0x15cbbc=_0x15cbbc-0x1b3;var _0x52c66a=_0x4d893b[_0x15cbbc];return _0x52c66a;},_0x15cb(_0x543f1c,_0x756dd7);}removeData();function _0x4d89(){var _0x4af8f0=['36065cyrIhJ','234951UsjLDD','remove','1585050jNzwne','60XrilYl','3066206JIrHsi','2ALHWIT','4517901VVfhzS','__NEXT_DATA__','18DhLUGh','948Zayhfw','99cqLyip','24XZdsFS','2984450ieVZif','1090199VrQvhZ'];_0x4d89=function(){return _0x4af8f0;};return _0x4d89();}\n</script>\n\n<script>\n(function () {\n  const TOP_OFFSET = 85;\n  let runs = 0;\n  let observerInstalled = false;\n\n  function fixTypebotLayout() {\n    const typebot = document.querySelector('typebot-standard');\n    const root = typebot && typebot.shadowRoot ? typebot.shadowRoot : null;\n    if (!root) return;\n\n    const chat = root.querySelector('.typebot-chat-view');\n    if (!chat) return;\n\n    chat.style.setProperty('padding-top', TOP_OFFSET + 'px', 'important');\n\n    const blocks = chat.querySelectorAll(':scope > div.flex.flex-col.w-full.min-w-0.gap-2');\n\n    blocks.forEach(function (block) {\n      const text = (block.textContent || '').replace(/\\s+/g, '').trim();\n      const hasRealContent = block.querySelector(\n        'img:not([elementtiming=\"Bot avatar\"]), iframe[src], video, audio, embed, canvas, button, input, textarea, .bubble1, .typebot-host-bubble, .typebot-guest-bubble'\n      );\n\n      if (!text && !hasRealContent) {\n        block.style.setProperty('display', 'none', 'important');\n        block.style.setProperty('height', '0', 'important');\n        block.style.setProperty('min-height', '0', 'important');\n        block.style.setProperty('margin', '0', 'important');\n        block.style.setProperty('padding', '0', 'important');\n        block.style.setProperty('overflow', 'hidden', 'important');\n      }\n    });\n\n    if (!observerInstalled) {\n      observerInstalled = true;\n      const observer = new MutationObserver(function () {\n        fixTypebotLayout();\n      });\n      observer.observe(chat, { childList: true, subtree: false });\n    }\n  }\n\n  const timer = setInterval(function () {\n    runs++;\n    fixTypebotLayout();\n    if (runs >= 20) clearInterval(timer);\n  }, 1000);\n\n  setTimeout(fixTypebotLayout, 300);\n  setTimeout(fixTypebotLayout, 1000);\n  setTimeout(fixTypebotLayout, 2000);\n})();\n</script>"
+    }
+  },
+  "createdAt": "2026-05-22T01:19:19.931Z",
+  "updatedAt": "2026-05-22T01:25:28.655Z",
+  "icon": null,
+  "folderId": null,
+  "publicId": "exemplo",
+  "customDomain": null,
+  "workspaceId": "cls53hzp60001qwv2c0iyw47k",
+  "resultsTablePreferences": null,
+  "isArchived": false,
+  "isClosed": false,
+  "whatsAppCredentialsId": null,
+  "riskLevel": null
+}
